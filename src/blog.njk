@@ -11,17 +11,8 @@ layout: 'base.njk'
 <ul class="articles__list flow" role="list">
 <!-- loops through the collections n the blog  file
 reverse chages the order(newest to the oldest) -->
-  {%- for post in collections.post | reverse-%}
-    <li>
-      <article>
-        <h3 class="snippet__title">{{post.data.title}}</h3>
-        <img src="{{post.data.image}}" alt="{{post.data.imageAlt}}" class="snippet__image">
-        <p class="snippet__meta">by <span>{{post.data.author}}</span> on <span>{{post.data.date}}</span></p>
-        <p class="snippet__body">{{post.data.description}}</p> 
-        <a href="{{post.url}}" class="btn btn--primary">Continue Reading</a>
-
-      </article>
-    </li>
+  {%- for post in collections.post | reverse -%}
+    {%- include "article-snippet.njk" -%}
   {%- endfor -%}
 </ul> 
   </div>
